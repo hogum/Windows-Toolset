@@ -1,0 +1,9 @@
+调整窗口大小mode con cols=32 lines=15
+清除输出cls
+延时ping 127.0.0.1 -n 秒 >nul
+输入set /p 要定义的值=
+管理员权限%1 mshta vbscript:CreateObject("Shell.Application").ShellExecute("cmd.exe","/c %~s0 ::","","runas",1)(window.close)&&exit
+
+注册表
+新增 修改reg add "HKEY_LOCAL_MACHINE\位置" /v "项名" /t reg_dword（类型） /d "值" /f
+查找for /f "tokens=1,2,* " %%i in ('REG QUERY HKEY_LOCAL_MACHINE\位置 /v 项名 ^| find /i "项名"') do set "要定义的值=%%k"
