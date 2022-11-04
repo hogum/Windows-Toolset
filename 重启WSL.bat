@@ -3,5 +3,6 @@ mode con cols=50 lines=15
 %1 mshta vbscript:CreateObject("Shell.Application").ShellExecute("cmd.exe","/c %~s0 ::","","runas",1)(window.close)&&exit
 title Code By Hogum
 mode con cols=50 lines=15
-reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power" /v "AwayModeEnabled" /t reg_dword /d "0" /f
-pause
+net stop LxssManager
+net start LxssManager
+ping 127.0.0.1 -n 5 >nul
